@@ -1,10 +1,23 @@
 class Scrape < ApplicationRecord
 
-  def get_data(url = 'https://clutch.co/developers/ruby-railshttps://www.thedesignwork.com/20-cool-animated-gifs-examples/')
+  def self.get_data
+    url = 'https://ultimateclassicrock.com/best-yacht-rock-songs/'
     page = HTTParty.get(url)
-    doc = Nokogiri::HTML(page)
+    doc = Nokogiri::HTML(page.body)
 
-    doc.css('h1#screen-shot-title').each do |img|
+    # doc.css('.single-post-oembed-youtube-wrapper').each do |node|
+    # doc.css('div').each do |node|
+    # doc.css('main div div div').each do |node|
+    doc.css('main div.pod-content').each do |node|
+    # check response.body.nil? || response.body.empty?
+    binding.pry
+
     end
   end
 end
+
+
+
+
+
+# "single-post-oembed-youtube-wrapper" 
